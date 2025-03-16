@@ -1,0 +1,283 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #0000ff, #00ff00);
+  font-family: 'Arial', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  padding: 2rem;
+}
+
+/* Menu Styles */
+.menu-container {
+  background-color: #f0f0f0; /* Màu xám nhạt */
+  border-radius: 15px; /* Bo góc mượt mà */
+  padding: 1.5rem 0; /* Khoảng cách trong dải */
+  width: 100%; /* Kéo dài toàn màn hình */
+  position: absolute;
+  top: 0; /* Đặt dải ở trên cùng */
+  left: 0; /* Bắt đầu từ cạnh trái */
+  z-index: -1; /* Đưa dải xuống dưới các thành phần menu, logo, contact */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho dải */
+}
+
+
+.menu  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; /* Khoảng cách hai bên cho menu */
+    position: relative; /* Đảm bảo menu nằm trên dải */
+    z-index: 1; /* Đưa menu lên trên vùng màu xám */
+}
+
+
+
+
+.contact-link {
+  padding-right: 1rem;
+  text-align: right;
+}
+
+.menu-item {
+  font-size: 2rem; /* Tăng kích thước chữ MENU */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+               -2px -2px 2px rgba(200, 200, 200, 0.2);
+  cursor: pointer;
+  position: relative;
+}
+.contact-link {
+  padding-right: 1rem; /* Thêm không gian giữa chữ và cạnh phải */
+  margin-right: 0; /* Loại bỏ mọi margin dư thừa */
+  text-align: right; /* Căn chữ về phía trong */
+}
+
+.contact-button {
+  text-decoration: none;
+  font-size: 1.5rem; /* Tăng kích thước chữ Contact */
+  color: white;
+  padding: 0.6rem 1.2rem; /* Điều chỉnh padding để nhìn cân đối hơn */
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background: white;
+  color: black;
+}
+.artistic-logo {
+  flex-grow: 1; /* Đảm bảo khoảng trống cân đối giữa các phần */
+  text-align: center; /* Căn giữa logo */
+  margin: 0 auto; /* Giữ logo nằm chính giữa */
+}
+
+.logo-image {
+  max-width: 100px; /* Điều chỉnh kích thước logo (độ rộng tối đa) */
+  height: auto; /* Đảm bảo giữ đúng tỷ lệ hình ảnh */
+  animation: fadeIn 1.5s ease-out forwards; /* Thêm hiệu ứng mờ dần */
+  opacity: 0; /* Ban đầu ẩn logo */
+}
+
+/* Hiệu ứng mờ dần */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.8); /* Logo thu nhỏ ban đầu */
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1); /* Logo hiện kích thước ban đầu */
+  }
+}
+
+
+
+/* Content Styles */
+.content {
+  text-align: center;
+  opacity: 0;
+  animation: slideUp 1s 1s forwards;
+  margin-top: 40px; /* Tăng khoảng cách giữa chữ và ảnh */
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 40px; /* Đẩy tiêu đề xuống xa hơn */
+}
+
+.centered-image {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1150px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Background Elements */
+.bg-elements, .circle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(255,215,0,0.1);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite, ripple 5s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.heart {
+  position: absolute;
+  font-size: 2rem; /* Kích thước ký tự trái tim */
+  color: red;
+  transform: translate(-50%, -50%) scale(1);
+  animation: fly 1s ease-out forwards;
+  opacity: 1;
+}
+
+/* Hiệu ứng bay */
+@keyframes fly {
+  0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+  }
+  100% {
+      transform: translate(-50%, -200%) scale(1.5);
+      opacity: 0;
+  }
+}
+.artistic-title {
+  font-family: "Lucida Handwriting", cursive; /* Phông chữ nghệ thuật */
+  font-size: 2.5rem; /* Kích thước chữ */
+  color: #f4c2c2; /* Màu hồng nhạt */
+  text-align: center;
+  margin-top: 50px; /* Căn cách phía trên */
+}
+
+#typewriter {
+  border-right: 2px solid #f4c2c2; /* Tạo hiệu ứng con trỏ nhấp nháy */
+  display: inline-block;
+  animation: blink 0.7s step-start infinite; /* Hiệu ứng nhấp nháy */
+}
+
+/* Hiệu ứng nhấp nháy con trỏ */
+@keyframes blink {
+  50% {
+      border-color: transparent;
+  }
+}
+.zoom-image {
+  display: block;
+  margin: 0 auto; /* Căn giữa ảnh */
+  width: 100%; /* Điều chỉnh kích thước ban đầu của ảnh */
+  max-width: 1100px; /* Đặt chiều rộng tối đa */
+  height: auto; /* Đảm bảo tỷ lệ ảnh không bị méo */
+  border-radius: 20px; /* Bo góc ảnh (tuỳ chọn) */
+  animation: zoomIn 3s ease-out forwards; /* Hiệu ứng zoom in */
+  opacity: 0; /* Ẩn ảnh ban đầu */
+}
+
+/* Hiệu ứng zoom in */
+@keyframes zoomIn {
+  0% {
+      transform: scale(0.8); /* Ảnh nhỏ hơn ban đầu */
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1); /* Ảnh trở về kích thước ban đầu */
+      opacity: 1;
+  }
+}
+#audio {
+  display: none; /* Ẩn đi giao diện phát nhạc */
+}
+.vertical-music-player {
+  position: fixed;
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 0; /* Đặt ở viền trái */
+  transform: translateY(-50%); /* Đảm bảo căn giữa chính xác */
+  writing-mode: vertical-rl; /* Chữ chạy dọc từ trên xuống dưới */
+  text-orientation: upright; /* Để chữ không bị xoay ngang */
+  font-size: 1.2rem; /* Kích thước chữ */
+  color: white; /* Màu chữ */
+  font-weight: bold; /* Chữ đậm */
+  text-align: center; /* Căn giữa các phần tử bên trong */
+}
+
+.song-title {
+  margin-bottom: 1rem; /* Khoảng cách giữa tên bài hát và nút Play */
+}
+.vertical-music-player {
+  position: fixed;
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 10px; /* Sát mép trái */
+  transform: translateY(-50%); /* Căn chỉnh hoàn hảo theo chiều dọc */
+  writing-mode: vertical-rl; /* Chữ chạy dọc */
+  text-orientation: upright; /* Chữ không bị xoay ngang */
+  color: white;
+  font-size: 1.2rem; /* Kích thước chữ */
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Khoảng cách giữa tên bài hát và nút */
+}
+
+.play-button {
+  font-size: 1.5rem;
+  letter-spacing: 0.2em; /* Tăng khoảng cách giữa các ký tự */
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.play-button:hover {
+  color: #00ff00; /* Đổi màu xanh lá khi hover */
+}
+
+
+
+
